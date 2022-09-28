@@ -63,7 +63,8 @@ class IndexController extends Controller
         $countries = DataArrayHelper::langCountriesArray();
 		$sliders = Slider::langSliders();
         $seo = SEO::where('seo.page_title', 'like', 'front_index_page')->first();
-        $response = Http::get("http://ip-api.com/json/");
+        $ip=$_SERVER['REMOTE_ADDR'];
+        $response = Http::get("http://ip-api.com/json/$ip");
         $country_name = $response->json('country');
         $currentCountry = Country::where("country", $country_name)->first();
         return view('welcome')
