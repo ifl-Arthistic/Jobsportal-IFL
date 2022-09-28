@@ -48,7 +48,7 @@
 		<div class="col-md-6">
         <div class="srform">
 			<label for="">{{__('Select Country')}}</label>
-            {!! Form::select('country_id[]', ['' => __('Select Country')]+$countries, Request::get('country_id', $siteSetting->default_country_id), array('class'=>'form-control', 'id'=>'country_id')) !!}
+            {!! Form::select('country_id[]', ['' => __('Select Country')]+$countries, Request::get('country_id', $currentCountry->id ?? $siteSetting->default_country_id), array('class'=>'form-control', 'id'=>'country_id')) !!}
         </div>
 			</div>	
         @endif

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use Illuminate\Http\Client\Response;
 /*
   |--------------------------------------------------------------------------
   | API Routes

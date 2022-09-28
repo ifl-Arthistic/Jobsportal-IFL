@@ -165,7 +165,6 @@ class SiteSettingController extends Controller
         $siteSetting->salt = $request->input('salt');
 
         $siteSetting->default_country_id = $request->input('default_country_id');
-
         $siteSetting->country_specific_site = $request->input('country_specific_site');
 
         $siteSetting->default_currency_code = $request->input('default_currency_code');

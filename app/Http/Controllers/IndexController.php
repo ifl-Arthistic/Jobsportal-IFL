@@ -19,8 +19,9 @@ use App\Traits\CompanyTrait;
 use App\Traits\FunctionalAreaTrait;
 use App\Traits\CityTrait;
 use App\Traits\JobTrait;
-use App\Traits\Active;
+use App\Traits\Active;  
 use App\Helpers\DataArrayHelper;
+use Illuminate\Support\Facades\Http;
 
 class IndexController extends Controller
 {
@@ -58,26 +59,29 @@ class IndexController extends Controller
         $blogs = Blog::orderBy('id', 'desc')->where('lang', 'like', \App::getLocale())->limit(3)->get();
         $video = Video::getVideo();
         $testimonials = Testimonial::langTestimonials();
-
         $functionalAreas = DataArrayHelper::langFunctionalAreasArray();
         $countries = DataArrayHelper::langCountriesArray();
 		$sliders = Slider::langSliders();
-
         $seo = SEO::where('seo.page_title', 'like', 'front_index_page')->first();
+        $response = Http::get("http://ip-api.com/json/");
+        $country_name = $response->json('country');
+        $currentCountry = Country::where("country", $country_name)->first();
         return view('welcome')
-                        ->with('topCompanyIds', $topCompanyIds)
-                        ->with('topFunctionalAreaIds', $topFunctionalAreaIds)
-                        ->with('topCityIds', $topCityIds)
-                        ->with('topIndustryIds', $topIndustryIds)
-                        ->with('featuredJobs', $featuredJobs)
-                        ->with('latestJobs', $latestJobs)
-                        ->with('blogs', $blogs)
-                        ->with('functionalAreas', $functionalAreas)
-                        ->with('countries', $countries)
-						->with('sliders', $sliders)
-                        ->with('video', $video)
-                        ->with('testimonials', $testimonials)
-                        ->with('seo', $seo);
+            ->with('topCompanyIds', $topCompanyIds)
+            ->with('topFunctionalAreaIds', $topFunctionalAreaIds)
+            ->with('topCityIds', $topCityIds)
+            ->with('topIndustryIds', $topIndustryIds)
+            ->with('featuredJobs', $featuredJobs)
+            ->with('latestJobs', $latestJobs)
+            ->with('blogs', $blogs)
+            ->with('functionalAreas', $functionalAreas)
+            ->with('countries', $countries)
+            ->with('sliders', $sliders)
+            ->with('video', $video)
+            ->with('testimonials', $testimonials)
+            ->with('currentCountry', $currentCountry)
+            ->with('seo', $seo);
+            
     }
 
     public function setLocale(Request $request)
@@ -89,7 +93,7 @@ class IndexController extends Controller
 
         session(['locale' => $locale]);
         session(['localeDir' => $localeDir]);
-
+        
         return Redirect::to($return_url);
     }
 	
