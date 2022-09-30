@@ -27,35 +27,41 @@
 		
 	
 			<div class="srform">
-				<label for=""> {{__('Keywords / Job Title')}}</label>
-				<input type="text"  name="search" id="jbsearch" value="{{Request::get('search', '')}}" class="form-control" placeholder="{{__('Enter Skills or job title')}}" autocomplete="off" /></div>
+				<label for=""> {{__('Search for Talent?')}}</label>
+				<input type="text"  name="search" id="jbsearch" value="{{Request::get('search', '')}}" class="form-control" placeholder="{{__('Enter Skills or job title')}}" autocomplete="off" />
+			</div>
+		
 			
 		
 				
 		<div class="srcsubfld additional_fields">
+		<div class="srform">
+				<label for=""> {{__('Search for Work?')}}</label>
+				<input type="text"  name="search" id="jbsearch" value="{{Request::get('search', '')}}" class="form-control" placeholder="{{__('Enter Skills or job title')}}" autocomplete="off" />
+			</div>
 		<div class="row">
 			<div class="col-md-{{((bool)$siteSetting->country_specific_site)? 12:6}}">
 			
 		
-        <div class="srform">
+       <!--  <div class="srform">
 			<label for="">{{__('Select Functional Area')}}</label>
             {!! Form::select('functional_area_id[]', ['' => __('Select Functional Area')]+$functionalAreas, Request::get('functional_area_id', null), array('class'=>'form-control', 'id'=>'functional_area_id')) !!}
-        </div>
+        </div> -->
 </div>	
         @if((bool)$siteSetting->country_specific_site)
         {!! Form::hidden('country_id[]', Request::get('country_id[]', $siteSetting->default_country_id), array('id'=>'country_id')) !!}
         @else
-		<div class="col-md-6">
+		<!-- <div class="col-md-6">
         <div class="srform">
 			<label for="">{{__('Select Country')}}</label>
             {!! Form::select('country_id[]', ['' => __('Select Country')]+$countries, Request::get('country_id', $currentCountry->id ?? $siteSetting->default_country_id), array('class'=>'form-control', 'id'=>'country_id')) !!}
         </div>
-			</div>	
+			</div>	 -->
         @endif
 		</div>
 			
 			
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col-md-6"><div class="srform">
 			<label for="">{{__('Select State')}}</label>
             <span id="state_dd">
@@ -67,7 +73,7 @@
             <span id="city_dd">
                 {!! Form::select('city_id[]', ['' => __('Select City')], Request::get('city_id', null), array('class'=>'form-control', 'id'=>'city_id')) !!}
             </span>
-        </div>	</div>	
+        </div>	</div>	 -->
 		</div>
         
        

@@ -93,9 +93,57 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
 }
+
+/* list style css */
 ol, ul {
 	list-style: none;
 }
+.listtalent{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.listtalent hr{
+	margin: 60px 0 ;
+}
+
+.listtalent ._8hq62nwZ{
+	margin-bottom: 50px;
+	font-size: 25px;
+	font-weight: 100;
+}
+
+.zjL-4_Jq{
+	grid-template-rows: repeat(8, auto);
+}
+
+.zjL-4_Jqq{
+	grid-template-rows: repeat(10, auto);
+}
+
+.zjL-4_Jq, .zjL-4_Jqq{
+	display: grid;
+	grid-template-columns: 27% 27% 21% 25%;
+	grid-auto-flow: column;
+	column-gap: 4px;
+	row-gap: 22px;
+}
+
+.zjL-4_Jq ._33DCQ6Tb, .zjL-4_Jqq ._33DCQ6Tb{
+	color: rgb(21, 95, 255);
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.zjL-4_Jq a, .zjL-4_Jqq a{
+	color: grey;
+	line-height: 1.5;
+	text-decoration: none;
+}
+
+
+/* end of list style css */
 blockquote, q {
 	quotes: none;
 }
@@ -596,7 +644,7 @@ h3.seekertxt span{color: #009c46;}
 
 
 
-.srchbox label{display: block; color: #000; margin-bottom: 5px;font-size: 14px; font-weight: 700;}
+.srchbox label{display: block; color: #000; margin: 20px 0 10px;font-size: 14px; font-weight: 700;}
 .additional_fields{margin-top: 15px}
 
 .seekersrch{max-width: 700px; background: #fff; padding: 15px; box-shadow:0px 20px 40px 5px rgb(0 0 0 / 20%); border-radius: 5px;}

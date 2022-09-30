@@ -36,7 +36,9 @@
 <!-- Testimonials start -->
 @include('includes.home_blogs')
 <!-- Testimonials End -->
-<!-- Subscribe start -->
+
+@include('includes.home_listtalent')
+
 @include('includes.subscribe')
 <!-- Subscribe End -->
 @include('includes.footer')
