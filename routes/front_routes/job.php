@@ -1,5 +1,6 @@
 <?php
 
+Route::get('job/talent/{slug}', 'JobsController@jobtalent');
 Route::get('job/{slug}', 'Job\JobController@jobDetail')->name('job.detail');
 Route::get('apply/{slug}', 'Job\JobController@applyJob')->name('apply.job');
 Route::post('apply/{slug}', 'Job\JobController@postApplyJob')->name('post.apply.job');

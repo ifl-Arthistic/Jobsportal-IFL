@@ -67,6 +67,8 @@ class IndexController extends Controller
         $response = Http::get("http://ip-api.com/json/$ip");
         $country_name = $response->json('country');
         $currentCountry = Country::where("country", $country_name)->first();
+        $jobs = Job::all();
+
         return view('welcome')
             ->with('topCompanyIds', $topCompanyIds)
             ->with('topFunctionalAreaIds', $topFunctionalAreaIds)
@@ -81,7 +83,8 @@ class IndexController extends Controller
             ->with('video', $video)
             ->with('testimonials', $testimonials)
             ->with('currentCountry', $currentCountry)
-            ->with('seo', $seo);
+            ->with('seo', $seo)
+            ->with('jobs', $jobs);
             
     }
 

@@ -1,7 +1,14 @@
 <div data-testid="skills-list-group" class="container listtalent">
    <div data-testid="skills-list-container" class="_2g_ZO6j8  _1cwKlNuP">
       <h2 class="_8hq62nwZ" data-testid="skills-list-title">BestJobs Developers</h2>
-      <ul class="zjL-4_Jq">
+      @foreach($jobs as $job)
+         @if($job['job_type'] == 1)
+            <li class=""><a href="/job/talent/{{$job['title']}}" data-testid="skill-link" class="">{{$job['title']}}</a></li>
+         
+         @endif
+      @endforeach
+     
+      <!-- <ul class="zjL-4_Jq">
          <li class=""><a href="algorithms" data-testid="skill-link" class="   ">Algorithm Developers</a></li>
          <li class=""><a href="angular" data-testid="skill-link" class="   ">Angular Developers</a></li>
          <li class=""><a href="aws" data-testid="skill-link" class="   ">AWS Developers</a></li>
@@ -39,6 +46,11 @@
                </svg>
             </a>
          </li>
+      </ul> -->
+      <ul class="zjL-4_Jq">
+         @foreach($jobs as $job)
+         <li class=""><a href="/job/talent/{{$job['title']}}" data-testid="skill-link" class="">{{$job['title']}}</a></li>
+          @endforeach
       </ul>
    </div>
    <hr>
