@@ -119,6 +119,7 @@ class Job extends Model
     {
         return $this->belongsTo('App\JobType', 'job_type_id', 'job_type_id');
     }
+    
 
     public function getJobType($field = '')
     {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App;
 use App\Seo;
 use App\Job;
+use App\JobCategories;
 use App\Company;
 use App\FunctionalArea;
 use App\Country;
@@ -68,7 +69,7 @@ class IndexController extends Controller
         $country_name = $response->json('country');
         $currentCountry = Country::where("country", $country_name)->first();
         $jobs = Job::all();
-
+        $job_categories = JobCategories::with('job_list')->get();
         return view('welcome')
             ->with('topCompanyIds', $topCompanyIds)
             ->with('topFunctionalAreaIds', $topFunctionalAreaIds)
@@ -84,7 +85,8 @@ class IndexController extends Controller
             ->with('testimonials', $testimonials)
             ->with('currentCountry', $currentCountry)
             ->with('seo', $seo)
-            ->with('jobs', $jobs);
+            ->with('jobs', $jobs)
+            ->with('job_categories', $job_categories);
             
     }
 

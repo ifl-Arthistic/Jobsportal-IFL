@@ -1,12 +1,9 @@
 <div data-testid="skills-list-group" class="container listtalent">
+@foreach ($job_categories as $job_category)
+
    <div data-testid="skills-list-container" class="_2g_ZO6j8  _1cwKlNuP">
-      <h2 class="_8hq62nwZ" data-testid="skills-list-title">BestJobs Developers</h2>
-      @foreach($jobs as $job)
-         @if($job['job_type'] == 1)
-            <li class=""><a href="/job/talent/{{$job['title']}}" data-testid="skill-link" class="">{{$job['title']}}</a></li>
-         
-         @endif
-      @endforeach
+    <h2 class="_8hq62nwZ" data-testid="skills-list-title">BestJobs {{$job_category['category']}}</h2>
+  
      
       <!-- <ul class="zjL-4_Jq">
          <li class=""><a href="algorithms" data-testid="skill-link" class="   ">Algorithm Developers</a></li>
@@ -48,12 +45,26 @@
          </li>
       </ul> -->
       <ul class="zjL-4_Jq">
-         @foreach($jobs as $job)
-         <li class=""><a href="/job/talent/{{$job['title']}}" data-testid="skill-link" class="">{{$job['title']}}</a></li>
-          @endforeach
+      @foreach($jobs as $job)
+         @if($job['job_category_id'] == $job_category['id'])
+            <li class=""><a href="/job/talent/{{$job['title']}}" data-testid="skill-link" class="">{{$job['title']}}</a></li>
+         
+         @endif
+         
+      @endforeach
+      <li class="">
+            <a href="/designers" class="_33DCQ6Tb  ">
+               <span class="">View More Freelance&nbsp;Designers</span>
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+               </svg>
+            </a>
+         </li>
       </ul>
+      
    </div>
    <hr>
+   @endforeach<!-- 
    <div data-testid="skills-list-container" class="">
       <h2 class="_8hq62nwZ" data-testid="skills-list-title">BestJobs Designers</h2>
       <ul class="zjL-4_Jq">
@@ -235,5 +246,5 @@
          </li>
       </ul>
    </div>
-   <hr>
+   <hr> -->
 </div>
