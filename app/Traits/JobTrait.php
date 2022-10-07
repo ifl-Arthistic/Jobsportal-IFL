@@ -161,7 +161,7 @@ trait JobTrait
     private function assignJobValues($job, $request)
 
     {
-
+        
         $job->title = $request->input('title');
 
         $job->description = $request->input('description');
@@ -202,6 +202,8 @@ trait JobTrait
 
         $job->job_experience_id = $request->input('job_experience_id');
 
+        $job->job_category_id = $request->input('job_category_id');
+
         $job->salary_period_id = $request->input('salary_period_id');
 
         return $job;
@@ -238,6 +240,8 @@ trait JobTrait
 
         $salaryPeriods = DataArrayHelper::defaultSalaryPeriodsArray();
 
+        $jobCategories = DataArrayHelper::defaultJobCategoryArray();
+
         $jobSkillIds = array();
 
         return view('admin.job.add')
@@ -265,6 +269,8 @@ trait JobTrait
                         ->with('jobSkillIds', $jobSkillIds)
 
                         ->with('degreeLevels', $degreeLevels)
+
+                        ->with('jobCategories', $jobCategories)
 
                         ->with('salaryPeriods', $salaryPeriods);
 
@@ -344,7 +350,7 @@ trait JobTrait
 
         $salaryPeriods = DataArrayHelper::defaultSalaryPeriodsArray();
 
-
+        $jobCategories = DataArrayHelper::defaultJobCategoryArray();
 
         $job = Job::findOrFail($id);
 
@@ -377,6 +383,8 @@ trait JobTrait
                         ->with('degreeLevels', $degreeLevels)
 
                         ->with('salaryPeriods', $salaryPeriods)
+
+                        ->with('jobCategories', $jobCategories)
 
                         ->with('job', $job);
 

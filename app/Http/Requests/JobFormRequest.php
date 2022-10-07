@@ -57,6 +57,7 @@ class JobFormRequest extends Request
                         "expiry_date" => "required",
                         //"degree_level_id" => "required",
                         "job_experience_id" => "required",
+                        "job_category_id" => "required",
                         "is_active" => "required",
                         "is_featured" => "required",
                     ];
@@ -93,6 +94,7 @@ class JobFormRequest extends Request
             'job_experience_id.required' => 'Please select job experience.',
             'is_active.required' => 'Is this Job active?',
             'is_featured.required' => 'Is this Job featured?',
+            'job_category_id' => 'Please select job category',
         ];
     }
 

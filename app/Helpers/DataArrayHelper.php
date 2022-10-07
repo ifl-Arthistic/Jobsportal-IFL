@@ -31,6 +31,7 @@ use App\SalaryPeriod;
 use App\Video;
 use App\Testimonial;
 use App\Slider;
+use App\JobCategories;
 
 class DataArrayHelper
 {
@@ -488,4 +489,12 @@ class DataArrayHelper
     }
 
     /*     * **************************** */
+
+    public static function defaultJobCategoryArray(){
+
+        $array = JobCategories::pluck('category', 'id')->toArray();
+        return $array;
+
+    }
+
 }

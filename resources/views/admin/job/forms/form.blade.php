@@ -161,6 +161,11 @@
         {!! Form::select('job_experience_id', ['' => 'Select Required job experience']+$jobExperiences, null, array('class'=>'form-control', 'id'=>'job_experience_id')) !!}
         {!! APFrmErrHelp::showErrors($errors, 'job_experience_id') !!}                                       
     </div>
+    <div class="form-group {!! APFrmErrHelp::hasError($errors, 'job_category_id') !!}" id="job_category_id_div">
+        {!! Form::label('job_category_id', 'Required job Category', ['class' => 'bold']) !!}                    
+        {!! Form::select('job_category_id', ['' => 'Select Required job Category']+$jobCategories, null, array('class'=>'form-control', 'id'=>'job_category_id')) !!}
+        {!! APFrmErrHelp::showErrors($errors, 'job_category_id') !!}                                       
+    </div>
     <div class="form-group {!! APFrmErrHelp::hasError($errors, 'is_active') !!}">
         {!! Form::label('is_active', 'Is Active?', ['class' => 'bold']) !!}
         <div class="radio-list">
